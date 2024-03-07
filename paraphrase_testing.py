@@ -90,7 +90,8 @@ if __name__ == "__main__":
     true_lbs = test_df["label"].to_list()[:test_quntity]
 
     # model = SentenceTransformer('paraphrase-multilingual-mpnet-base-v2')
-    model = SentenceTransformer(os.path.join("models", "all_sys.transformers"))
+    # model = SentenceTransformer(os.path.join("models", "all_sys.transformers"))
+    model = SentenceTransformer(os.path.join("models", "bss_paraphrase.transformers"))
 
     # Compute embedding for both lists
     cosine_scores = texts_similarity_estimation(sentences1, sentences2, model)
@@ -106,4 +107,4 @@ if __name__ == "__main__":
     test_result_df = pd.DataFrame(test_result)
     print(test_result_df)
 
-    test_result_df.to_csv(os.path.join("results", "sys_1_test_results_trained.csv"), sep="\t", index=False)
+    test_result_df.to_csv(os.path.join("results", "sys_1_test_results_trained_bss.csv"), sep="\t", index=False)
